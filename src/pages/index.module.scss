@@ -1,0 +1,78 @@
+$mobile-breakpoint: "(max-width: 590px)";
+
+.body {
+  display: grid;
+  height: 90vh;
+  justify-content: center;
+  width: 100vw;
+  grid-template-rows: 1fr 2fr 2fr;
+  grid-template-areas: 
+  "logo1 logo2" 
+  "cT cT" 
+  "cd cd";
+}
+
+.cyberTitle {
+  grid-area: cT;
+  align-self: center;
+  color: white;
+  text-decoration: none;
+  border-style: solid;
+  border-width: 2px;
+  border-color: white;
+  padding-left: 1.7px;
+  padding-right: 1.7px;
+  padding-top: 0;
+  padding-bottom: 0;
+  font-family: CyberFont;
+  justify-self: center;
+  transform: scale(6);
+  @media #{$mobile-breakpoint} {
+    transform: scale(3);
+  }
+  height: 24px;
+  p {
+    top: -1px;
+    position: relative;
+  }
+}
+
+.countDown {
+  grid-area: cd;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr;
+  width: 300px;
+  justify-items: center;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 30px;
+  color: greenyellow;
+  position: relative;
+  .smalltext {
+    background-color: black;
+    display: block;
+    height: 40px;
+    width: 70px;
+    padding-top: 0.15em;
+    padding-bottom: 0;
+    padding-left: 0.1em;
+    padding-right: 0.1em;
+    letter-spacing: -4px;
+  }
+}
+
+.logo1{
+grid-area: logo1;
+align-self: flex-end;
+justify-self: flex-start;
+width: 100px;
+height: 100px;
+}
+
+.logo2{
+grid-area: logo2;
+align-self: flex-end;
+justify-self: flex-end;
+width: 100px;
+height: 110px;
+}

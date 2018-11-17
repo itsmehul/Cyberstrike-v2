@@ -1,0 +1,41 @@
+.wide{
+  position: fixed;
+  z-index: -1;
+  width: 100vw;
+  height: 100vh;
+}
+
+.myVideo {
+  position: fixed;
+  z-index: -5;
+  right: 0;
+  bottom: 0;
+  min-width: 100%; 
+  min-height: 100%;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin-top: 0;
+}
+
+p,
+h3, body {
+  margin: 0;
+}
+
+body{
+  background-color: black;
+}
+
+.body {
+  background-color: transparent;
+  height: 100%;
+  padding: 0px;
+}
+
+video{
+  opacity: 0.3;
+}

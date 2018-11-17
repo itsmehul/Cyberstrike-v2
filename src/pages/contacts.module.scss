@@ -1,0 +1,85 @@
+@import url("https://fonts.googleapis.com/css?family=Montserrat:900|Prata&text=DOT%COM%CLUB");
+$mobile-breakpoint: "(min-width: 590px)";
+
+.body {
+  display: grid;
+  grid-template-rows: 100px 50px 250px 50px 754px 1fr;
+  @media #{$mobile-breakpoint} {
+    grid-template-rows: 100px 50px 250px 50px 1fr 1fr;
+  }
+  color: white;
+  justify-items: center;
+}
+
+.eventhead {
+  font-family: "CyberFont";
+}
+.eventtitle {
+  font-family: "Montserrat", sans-serif;
+}
+.clubDetails {
+  border-style: ridge;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  border-width: 2px;
+  border-color: white;
+  display: grid;
+  align-items: center;
+  padding: 1.5em;
+  margin-bottom: 20px;
+  p {
+    margin-bottom: 0.8em;
+  }
+  span {
+    font-weight: bolder;
+    background-color: white;
+    color: black;
+    padding-left: 2px;
+    padding-right: 2px;
+  }
+}
+
+.sectionHead {
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+}
+
+.contactCard {
+  display: grid;
+  width: 100%;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  height: 200px;
+  justify-items: center;
+  color: black;
+  .card {
+    display: grid;
+    font-family: "Prata", serif;
+    grid-template-areas:
+      "name head"
+      "name contact";
+    height: 150px;
+    width: 300px;
+    background: white;
+    padding: 0.5em;
+    .name {
+      grid-area: name;
+      align-self: center;
+      justify-self: center;
+      width: 100px;
+      font-size: 20px;
+    }
+    .head {
+      grid-area: head;
+      font-size: 16px;
+      align-self: flex-end;
+      justify-self: center;
+      font-style: italic;
+    }
+    .contact {
+      grid-area: contact;
+      align-self: center;
+      justify-self: flex-end;
+      padding-right: 1em;
+    }
+    margin-bottom: 2em;
+  }
+}

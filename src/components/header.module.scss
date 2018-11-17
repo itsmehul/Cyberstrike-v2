@@ -1,0 +1,83 @@
+@import url(https://fonts.googleapis.com/css?family=Dosis:200);
+$mobile-breakpoint: (
+  max-width: 590px
+);
+
+@font-face {
+  font-family: "CyberFont";
+  src: url(./bebas.ttf);
+}
+.sidebar {
+  transform: translateX(-320px);
+  transition: 300ms transform ease;
+  display: none;
+  @media #{$mobile-breakpoint} {
+    transform: translateX(0px);
+    transition: 300ms transform ease;
+    position: fixed;
+    display: grid;
+    align-items: center;
+    top: 0;
+    bottom: 0;
+    width: 320px;
+    background-color: black;
+    z-index: 5;
+    padding: 2em;
+    padding-top: 6em;
+    padding-bottom: 10em;
+  }
+}
+nav {
+  .smenu {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    height: 30px;
+    background-color: transparent;
+    @media #{(min-width: 590px)} {
+      display: none;
+    }
+  }
+  .navbar {
+    @media #{$mobile-breakpoint} {
+      display: none;
+    }
+  }
+  .cyberstrike {
+    color: white;
+    position: relative;
+    text-decoration: none;
+    display: inline-block;
+    border-style: solid;
+    border-width: 2px;
+    border-color: white;
+    padding-left: 1.7px;
+    padding-right: 1.7px;
+    padding-top: 0;
+    padding-bottom: 0.5px;
+    font-family: "CyberFont";
+    justify-self: flex-start;
+    margin-right: auto;
+    margin-left: 1em;
+    @media #{$mobile-breakpoint} {
+      justify-self: center !important;
+      margin-left: auto;
+      margin-right: auto;
+    }
+  }
+}
+.trans {
+  background-color: transparent;
+}
+.fontfam {
+  font-size: 16px;
+  font-family: "Dosis", sans-serif;
+}
+.stickyNav {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  height: 50px;
+  background-color: transparent;
+  padding: 0px;
+}
