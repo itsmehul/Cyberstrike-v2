@@ -4,7 +4,6 @@ import Layout from "../components/layout";
 import contacts from '../data/contacts.json'
 
 const Contacts = () => {
-  console.log(contacts.team)
   return (
 <Layout>
         <div className={styles.body}>

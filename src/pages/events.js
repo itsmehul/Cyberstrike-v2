@@ -15,7 +15,7 @@ const EventCard = ({
 }) => {
   return (
     <section id={styles.imgcard}>
-      <img src={src} alt="xyz" />
+      <img src={src} alt="xyz"/>
       <button>
         <b>{title}</b> <br />{" "}
         <span style={{ fontSize: "13px" }}>KNOW MORE</span>
@@ -90,7 +90,7 @@ class Events extends Component {
             </p>
           </div>
           <div className={styles.cards}>
-            {this.state.showEvents==true&&(events.map(
+            {this.state.showEvents===true&&(events.map(
               ({ Date, type, fee, maindesc, src, short, teamSize, title }) => (
                 <EventCard
                   type={type}
@@ -103,7 +103,7 @@ class Events extends Component {
                 />
               )
             ))}
-            {this.state.showEvents==false&&(games.map(
+            {this.state.showEvents===false&&(games.map(
               ({ Date, type, fee, maindesc, src, short, teamSize, title }) => (
                 <EventCard
                   type={type}

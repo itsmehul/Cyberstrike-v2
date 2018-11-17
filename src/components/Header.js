@@ -26,7 +26,6 @@ class Header extends Component {
   }
 
   render() {
-    console.log(window)
     if (typeof window !== `undefined`) {
       var isHomepage = window.location.pathname === withPrefix("/");
       var isContacts = window.location.pathname === withPrefix("/contacts");
@@ -95,6 +94,10 @@ class Header extends Component {
                   textDecoration: "none",
                   marginRight: 30,
                   display: "inline-block"
+                }}
+                activeStyle={{
+                  transform:'scale(1.1)',
+                  fontWeight:'bold'
                 }}
               >
                 {link.page}

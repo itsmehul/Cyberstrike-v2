@@ -46,6 +46,11 @@ $mobile-breakpoint: "(min-width: 590px)";
 .contactCard {
   display: grid;
   width: 100%;
+  padding-left: 3em;
+  padding-right: 3em;
+  @media #{(max-width: 590px)} {
+    padding:0px;
+  }
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   height: 200px;
   justify-items: center;
