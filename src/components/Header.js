@@ -5,25 +5,22 @@ import styles from "./header.module.scss";
 import { withPrefix } from "gatsby-link";
 
 class Header extends Component {
-  state={
-    showSidebar:false
-  }
+  state = {
+    showSidebar: false
+  };
   componentDidMount() {
-    const my_awesome_script = document.createElement("script");
-    my_awesome_script.setAttribute("src", "http://example.com/site.js");
-    document.head.appendChild(my_awesome_script);
-    window.addEventListener('scroll', (e)=>this.handleScroll(e));
+
+    window.addEventListener("scroll", e => this.handleScroll(e));
   }
 
-  handleScroll = (e) => {
-    let mynav = document.getElementById('mynav')
-    if(window.pageYOffset>0){
-      mynav.style.backgroundColor="rgba(0,0,0,0.8)";
-      return
+  handleScroll = e => {
+    let mynav = document.getElementById("mynav");
+    if (window.pageYOffset > 0) {
+      mynav.style.backgroundColor = "rgba(0,0,0,0.8)";
+      return;
     }
-    mynav.style.backgroundColor="transparent";
-
-  }
+    mynav.style.backgroundColor = "transparent";
+  };
 
   render() {
     if (typeof window !== `undefined`) {
@@ -32,49 +29,62 @@ class Header extends Component {
       var isAboutus = window.location.pathname === withPrefix("/aboutus");
     }
 
-    const links = [ { page: "HOME", path: "/" }, { page: "EVENTS", path: "/events" }, { page: "SCORE", path: "/score" }, { page: "CONTACT US", path: "/contacts" } ];
-
+    const links = [
+      { page: "HOME", path: "/" },
+      { page: "EVENTS", path: "/events/" },
+      // { page: "SCORE", path: "/score" },
+      { page: "CONTACT US", path: "/contacts/" }
+    ];
 
     return (
-     <React.Fragment>
-
-        <div className={styles.sidebar} style={this.state.showSidebar===false?{transform:'translateX(-320px)'}:{transform:'translateX(0px)'}}>
-
-        {links.map(link => (
-              <Link
-                className={styles.fontfam}
-                to={link.path}
-                style={{
-                  color: 'white',
-                  textDecoration: "none",
-                  marginRight: 30,
-                  display: "block"
-                }}
-              >
-                {link.page}
-              </Link>
-            ))}
+      <React.Fragment>
+        <div
+          className={styles.sidebar}
+          style={
+            this.state.showSidebar === false
+              ? { transform: "translateX(-320px)" }
+              : { transform: "translateX(0px)" }
+          }
+        >
+          {links.map(link => (
+            <Link
+              className={styles.fontfam}
+              to={link.path}
+              style={{
+                color: "white",
+                textDecoration: "none",
+                marginRight: 30,
+                display: "block"
+              }}
+            >
+              {link.page}
+            </Link>
+          ))}
         </div>
         <nav
-        id='mynav'
+          id="mynav"
           style={{
             margin: 0,
             display: "flex",
             flex: 1,
             justifyContent: "flex-end",
             alignItems: "center",
-            height: "10vh",
-            position:'sticky',
-            top:'0',
-            zIndex:'5'
+            height: "60px",
+            position: "sticky",
+            top: "0",
+            zIndex: "5"
           }}
         >
-        <div className={styles.smenu} onClick={()=>this.setState({showSidebar:!this.state.showSidebar})}><img src='/static/assets/icons/smenu.svg'/></div>
-
-          <Link
-            to="/"
-            className={styles.cyberstrike}
+          <div
+            className={styles.smenu}
+            onClick={() =>
+              this.setState({ showSidebar: !this.state.showSidebar })
+            }
           >
+            <img src="/static/assets/icons/smenu.svg" />
+          </div>
+
+          <Link to="/" className={styles.cyberstrike}>
             <p
               style={{
                 top: "-1px",
@@ -90,14 +100,14 @@ class Header extends Component {
                 className={styles.fontfam}
                 to={link.path}
                 style={{
-                  color: 'white',
+                  color: "white",
                   textDecoration: "none",
                   marginRight: 30,
                   display: "inline-block"
                 }}
                 activeStyle={{
-                  transform:'scale(1.1)',
-                  fontWeight:'bold'
+                  transform: "scale(1.1)",
+                  fontWeight: "bold"
                 }}
               >
                 {link.page}
@@ -105,7 +115,7 @@ class Header extends Component {
             ))}
           </div>
         </nav>
-     </React.Fragment>
+      </React.Fragment>
     );
   }
 }

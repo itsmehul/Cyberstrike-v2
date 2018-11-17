@@ -3,6 +3,7 @@ import styles from "./events.module.scss";
 import Layout from "../components/layout";
 import eventdata from "../data/events.json";
 
+
 const EventCard = ({
   Date,
   type,
@@ -36,14 +37,22 @@ const EventCard = ({
 
 class Events extends Component {
   state = {
-    showEvents: false
+    showEvents: false,
+    showTs:false,
   };
 
   toggleShowEvents = () => {
     this.setState({ showEvents: !this.state.showEvents });
   };
 
+  toggleShowTs = () => {
+    this.setState({showTs:!this.state.showTs})
+  }
+
   componentDidMount(){
+    // const townscriptScript = document.createElement("script");
+    // townscriptScript.setAttribute("src", "//www.townscript.com/popup-widget/townscript-widget.nocache.js");
+    // document.head.appendChild(townscriptScript);
     window.addEventListener('scroll', (e)=>this.handleScroll(e));
   }
 
@@ -51,7 +60,7 @@ class Events extends Component {
     let heading = document.getElementById('heading')
     if(window.pageYOffset>10){
       heading.style.backgroundColor="rgba(0,0,0,0.8)";
-      heading.style.height="65px";
+      // heading.style.height="65px";
 
       return
     }
@@ -65,6 +74,14 @@ class Events extends Component {
     return (
       <Layout>
         <div className={styles.container}>
+        <div className={styles.tS} style={this.state.showTs===true
+                    ? { display:'grid' }
+                    : { display:'none' }  
+      }>
+        <button 
+          onClick={()=>this.toggleShowTs()}
+          >&times;</button>
+        <iframe src="https://www.townscript.com/widget/cyberstrike" frameborder="0" height="600" width="100%"></iframe></div>
           <div id='heading' className={styles.heading}>
             <p
               className={styles.gamesTitle}
@@ -73,13 +90,13 @@ class Events extends Component {
                   ? { fontSize: "50px" }
                   : { fontSize: "30px" }
               }
-              onClick={() => this.toggleShowEvents()}
+              onClick={() => this.setState({showEvents:false})}
             >
               Games
             </p>
             <p
               className={styles.eventTitle}
-              onClick={() => this.toggleShowEvents()}
+              onClick={() => this.setState({showEvents:true})}
               style={
                 this.state.showEvents
                   ? { fontSize: "50px" }
@@ -117,6 +134,14 @@ class Events extends Component {
               )
             ))}
           </div>
+          <button
+          onClick={()=>this.toggleShowTs()}
+          // class="tsbutton"
+          className={styles.regbtn}
+        >
+          Register Here!
+        </button>
+        
         </div>
       </Layout>
     );

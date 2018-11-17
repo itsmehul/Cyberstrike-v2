@@ -11,7 +11,7 @@
 .heading {
   grid-area: heading;
   position: sticky;
-  top:56px;
+  top: 60px;
   z-index: 4;
   color: white;
   justify-self: center;
@@ -21,12 +21,16 @@
   p {
     cursor: pointer;
     display: flex;
-    font-family: 'CyberFont';
+    font-family: "CyberFont";
     font-size: 20px;
     transition: 200ms font-size ease-in-out;
     align-items: center;
     &:first-child {
       margin-right: 40px;
+    }
+    &::selection {
+      color: red;
+      background: yellow;
     }
   }
 }
@@ -143,5 +147,60 @@
         }
       }
     }
+  }
+}
+
+.regbtn {
+  font-family: "Courier New", Courier, monospace;
+  font-weight: 50;
+  color: rgb(209, 255, 191);
+  font-weight: bold;
+  font-size: 110%;
+  border-radius: 2px;
+  position: fixed;
+  bottom: 20px;
+  border: none;
+  right: 20px;
+  padding: 12px;
+  background: linear-gradient(to bottom, rgb(0, 63, 19), rgba(3, 17, 7, 0.932));
+  box-shadow: 0 4px 0 0 rgb(188, 255, 101);
+  z-index: 4;
+  &:hover {
+    -webkit-transform: scale(1, 1);
+    transform: scale(1.1);
+  }
+  &::after {
+    opacity: 1;
+  }
+  &::after {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 5px;
+    box-shadow: 0 5px 15px rgba(255, 152, 104, 0.616);
+    opacity: 0;
+    -webkit-transition: all 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
+    transition: all 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
+  }
+}
+
+.tS {
+  display: grid;
+  position: fixed;
+  grid-template-columns: 70vw;
+  top: 55px;
+  left: 0px;
+  width: 100vw;
+  justify-content: center;
+  z-index: 8;
+  button {
+    background-color: black;
+    color: white;
+    border: none;
+    font-size: 30px;
   }
 }
